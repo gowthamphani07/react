@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      background: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    .success {
+      color: green;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Login</h2>
+
+  <form id="loginForm">
+    <input type="text" id="email" placeholder="Email">
+    <div id="emailError" class="error"></div>
+
+    <input type="password" id="password" placeholder="Password">
+    <div id="passwordError" class="error"></div>
+
+    <button type="submit">Login</button>
+
+    <div id="successMsg" class="success"></div>
+  </form>
+</div>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get values
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Error fields
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const successMsg = document.getElementById("successMsg");
+
+    // Clear previous messages
+    emailError.innerText = "";
+    passwordError.innerText = "";
+    successMsg.innerText = "";
+
+    let isValid = true;
+
+    // Email validation
+    if (email === "") {
+      emailError.innerText = "Email is required";
+      isValid = false;
+    } else if (!email.includes("@") || !email.includes(".")) {
+      emailError.innerText = "Enter a valid email";
+      isValid = false;
+    }
+
+    // Password validation
+    if (password === "") {
+      passwordError.innerText = "Password is required";
+      isValid = false;
+    } else if (password.length < 6) {
+      passwordError.innerText = "Password must be at least 6 characters";
+      isValid = false;
+    }
+
+    // Final result
+    if (isValid) {
+      successMsg.innerText = "Login Successful!";
+      console.log("Email:", email);
+      console.log("Password:", password);
+    }
+  });
+</script>
+
+</body>
+</html>

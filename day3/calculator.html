@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+
+<input id="n1" placeholder="Number 1">
+<input id="n2" placeholder="Number 2">
+
+<br><br>
+
+<button onclick="add()">Add</button>
+<button onclick="sub()">Sub</button>
+
+<p id="result"></p>
+
+<script>
+  function add() {
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+    document.getElementById("result").innerText = a + b;
+  }
+
+  function sub() {
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+    document.getElementById("result").innerText = a - b;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Filter</title>
+</head>
+<body>
+
+<h2>User Search</h2>
+
+<input id="search" placeholder="Enter name">
+<button onclick="filterUsers()">Search</button>
+
+<ul id="result"></ul>
+
+<script>
+  const users = [
+    { name: "Ravi" },
+    { name: "Anil" },
+    { name: "Kiran" },
+    { name: "Raj" }
+  ];
+
+  function filterUsers() {
+    const text = document.getElementById("search").value.toLowerCase();
+    document.getElementById("result").innerHTML = "";
+
+    const filtered = users.filter((u) =>
+      u.name.toLowerCase().includes(text)
+    );
+
+    filtered.map((u) => {
+      document.getElementById("result").innerHTML += `<li>${u.name}</li>`;
+    });
+  }
+</script>
+
+</body>
+</html>
