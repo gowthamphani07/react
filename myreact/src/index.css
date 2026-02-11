@@ -1,0 +1,14 @@
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+header {
+  background: lightblue;
+  padding: 10px;
+}
+
+footer {
+  background: lightgray;
+  padding: 10px;
+}
